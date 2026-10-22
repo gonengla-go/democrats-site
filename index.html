@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>הדמוקרטים – בחירות לכנסת</title>
+<meta name="description" content="הדמוקרטים – יחד מחזירים את ישראל למסלול. בחירות לכנסת.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  /* החליפו את הצבעים לפי מדריך המיתוג הרשמי של המפלגה */
+  :root {
+    --bg: #ffffff;
+    --surface: #f3f6fb;
+    --text: #14213d;
+    --muted: #4a5672;
+    --brand: #1d4ed8;
+    --brand-ink: #ffffff;
+    --accent: #e11d48;
+    --border: #dbe2ee;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b1220;
+      --surface: #131c2e;
+      --text: #e8edf7;
+      --muted: #a3afc7;
+      --brand: #3b82f6;
+      --brand-ink: #ffffff;
+      --accent: #fb7185;
+      --border: #24304a;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b1220;
+    --surface: #131c2e;
+    --text: #e8edf7;
+    --muted: #a3afc7;
+    --brand: #3b82f6;
+    --brand-ink: #ffffff;
+    --accent: #fb7185;
+    --border: #24304a;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Heebo", system-ui, sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+  }
+  a { color: inherit; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
+
+  header {
+    position: sticky; top: 0; z-index: 10;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+  }
+  header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 64px; }
+  .logo { font-weight: 900; font-size: 1.4rem; text-decoration: none; color: var(--brand); }
+  nav { display: flex; gap: 20px; }
+  nav a { text-decoration: none; color: var(--muted); font-weight: 500; }
+  nav a:hover { color: var(--text); }
+  @media (max-width: 640px) { nav { display: none; } }
+
+  .btn {
+    display: inline-block;
+    background: var(--brand); color: var(--brand-ink);
+    padding: 12px 24px; border-radius: 999px;
+    font-weight: 700; text-decoration: none;
+  }
+  .btn.outline { background: transparent; color: var(--brand); border: 2px solid var(--brand); }
+  .btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+  .hero { padding: 96px 0 80px; background: linear-gradient(180deg, var(--surface), var(--bg)); }
+  .hero h1 { font-size: clamp(2.2rem, 6vw, 4rem); line-height: 1.1; margin: 0 0 16px; font-weight: 900; }
+  .hero h1 span { color: var(--brand); }
+  .hero p { font-size: 1.25rem; color: var(--muted); max-width: 640px; margin: 0 0 32px; }
+  .hero .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+  .ballot {
+    display: inline-flex; align-items: center; gap: 12px;
+    margin-top: 40px; padding: 12px 20px;
+    border: 2px dashed var(--accent); border-radius: 12px;
+    font-weight: 700;
+  }
+  .ballot b { font-size: 2rem; color: var(--accent); }
+
+  section { padding: 72px 0; }
+  section h2 { font-size: 2rem; margin: 0 0 8px; }
+  .lead { color: var(--muted); margin: 0 0 40px; max-width: 680px; }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+  .card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 16px; padding: 24px;
+  }
+  .card h3 { margin: 0 0 8px; font-size: 1.2rem; color: var(--brand); }
+  .card p { margin: 0; color: var(--muted); }
+
+  .person { text-align: center; }
+  .avatar {
+    width: 96px; height: 96px; border-radius: 50%; margin: 0 auto 12px;
+    background: var(--border); display: grid; place-items: center;
+    font-weight: 900; font-size: 1.6rem; color: var(--muted);
+  }
+
+  .join { background: var(--brand); color: var(--brand-ink); border-radius: 24px; padding: 48px 24px; text-align: center; }
+  .join h2 { color: var(--brand-ink); }
+  .join p { opacity: .9; margin: 0 auto 28px; max-width: 560px; }
+  .join .btn { background: var(--brand-ink); color: var(--brand); }
+
+  footer { border-top: 1px solid var(--border); padding: 32px 0; color: var(--muted); font-size: .9rem; }
+  footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#">הדמוקרטים</a>
+    <nav aria-label="ניווט ראשי">
+      <a href="#about">מי אנחנו</a>
+      <a href="#plan">מה נעשה</a>
+      <a href="#team">הרשימה</a>
+      <a href="#join">הצטרפו</a>
+    </nav>
+    <a class="btn" href="#join">התנדבו</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <h1>מחזירים את ישראל<br><span>למסלול.</span></h1>
+      <p>מדינה יהודית ודמוקרטית, בטוחה, שוויונית והוגנת – לכל אזרחיה. בבחירות האלה ההחלטה בידיים שלכם.</p>
+      <div class="actions">
+        <a class="btn" href="#join">אני רוצה לעזור</a>
+        <a class="btn outline" href="#plan">מה אנחנו מציעים</a>
+      </div>
+      <div class="ballot">ביום הבחירות מצביעים <b>[אות]</b></div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap">
+      <h2>מי אנחנו</h2>
+      <p class="lead">הדמוקרטים הם בית לכל מי שמאמין בישראל ליברלית, ממלכתית וחזקה. אנחנו מאמינים שביטחון, צדק חברתי ודמוקרטיה הולכים יחד – ושאסור לוותר על אף אחד מהם.</p>
+    </div>
+  </section>
+
+  <section id="plan" style="background: var(--surface);">
+    <div class="wrap">
+      <h2>מה נעשה</h2>
+      <p class="lead">ארבעה דברים שנילחם עליהם מהיום הראשון בכנסת.</p>
+      <div class="grid">
+        <div class="card">
+          <h3>דמוקרטיה חזקה</h3>
+          <p>שמירה על עצמאות מערכת המשפט, על חופש הביטוי ועל שומרי הסף.</p>
+        </div>
+        <div class="card">
+          <h3>ביטחון אמיתי</h3>
+          <p>צבא חזק ואופק מדיני שמחזק את ביטחון ישראל לטווח הארוך.</p>
+        </div>
+        <div class="card">
+          <h3>צדק חברתי</h3>
+          <p>יוקר מחיה, דיור, בריאות וחינוך ציבורי – השקעה באנשים ולא בפוליטיקה.</p>
+        </div>
+        <div class="card">
+          <h3>שוויון לכולם</h3>
+          <p>שוויון זכויות לכל אזרחי ישראל ונטל משותף לכולם.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="team">
+    <div class="wrap">
+      <h2>הרשימה</h2>
+      <p class="lead">האנשים שילכו בשבילכם לכנסת.</p>
+      <div class="grid">
+        <div class="card person"><div class="avatar">1</div><h3>[שם מועמד/ת]</h3><p>[תפקיד / תיאור קצר]</p></div>
+        <div class="card person"><div class="avatar">2</div><h3>[שם מועמד/ת]</h3><p>[תפקיד / תיאור קצר]</p></div>
+        <div class="card person"><div class="avatar">3</div><h3>[שם מועמד/ת]</h3><p>[תפקיד / תיאור קצר]</p></div>
+        <div class="card person"><div class="avatar">4</div><h3>[שם מועמד/ת]</h3><p>[תפקיד / תיאור קצר]</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="join">
+    <div class="wrap">
+      <div class="join">
+        <h2>הצטרפו למאבק</h2>
+        <p>כל שעה של התנדבות, כל שיחה עם חבר וכל קול בקלפי – משנים את התוצאה.</p>
+        <a class="btn" href="mailto:[כתובת-מייל]">אני מתנדב/ת</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© הדמוקרטים</span>
+    <!-- חוק הבחירות (דרכי תעמולה) מחייב לציין מי הוציא את פרסום התעמולה -->
+    <span>מודעה זו מטעם [שם המפרסם / סיעת הדמוקרטים]</span>
+  </div>
+</footer>
+
+</body>
+</html>
